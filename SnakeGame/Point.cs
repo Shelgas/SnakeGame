@@ -11,14 +11,14 @@ namespace SnakeGame
         private const int pixelSize = 3;
         private readonly int _x;
         private readonly int _y;
-        public string Symbol { get; set; }
+        public char Symbol { get; set; }
         
 
         public Point(int x, int y)
         { 
             _x = x;
             _y = y;
-            Symbol = " ";
+            Symbol = ' ';
         }
 
 
@@ -41,7 +41,15 @@ namespace SnakeGame
 
         public void Clean()
         {
-            Symbol = " "; 
+            for (int x = 0; x < pixelSize; x++)
+            {
+                for (int y = 0; y < pixelSize; y++)
+                {
+                    Console.SetCursorPosition(_x * pixelSize + x, _y * pixelSize + y);
+                    Symbol = ' '; 
+                    Console.Write(Symbol);
+                }
+            }
         }
 
     }
