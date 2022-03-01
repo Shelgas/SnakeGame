@@ -39,5 +39,10 @@ namespace SnakeGame
             }
         }
 
+        public void Clean()
+        {
+            Symbol = " "; 
+        }
+
     }
 }
