@@ -10,20 +10,28 @@ namespace SnakeGame
     {
 
         public Point[,] grid;
+        private readonly int _width;
+        private readonly int _height;
 
         public GameField(int width, int height)
         {
             grid = new Point[width, height];
-            for (int i = 0; i < width; i++)
+            _height = height;
+            _width = width;
+            DrowBoard();
+        }
+
+        private void DrowBoard()
+        {
+            for (int i = 0; i < _width; i++)
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < _height; j++)
                 {
                     grid[i, j] = new Point(i, j);
-                    if (i == 0 || i == width - 1 || j == 0 || j == height - 1) grid[i, j].Symbol = "▓";
+                    if (i == 0 || i == _width - 1 || j == 0 || j == _height - 1) grid[i, j].Symbol = '▓';
                     grid[i, j].Draw();
                 }
             }
-
         }
 
     }
