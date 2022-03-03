@@ -21,11 +21,7 @@ namespace SnakeGame
             //DrowBoard();
             var s = new Snake();
             s.Draw();
-            s.Move();
-            s.Move();
-            s.Move();
-            s.Move();
-            s.Move();
+
         }
 
         private void DrowBoard()
