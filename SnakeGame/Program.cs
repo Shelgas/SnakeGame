@@ -29,7 +29,7 @@ namespace SnakeGame
                 {
 
                 }
-                snake.Move();
+                snake.Move(Direction.Down);
             }
 
             Console.ReadKey();

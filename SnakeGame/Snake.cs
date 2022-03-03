@@ -37,17 +37,32 @@ namespace SnakeGame
             foreach (Point p in BodyPoints) p.Draw();
         }
 
-        public void Move()
+        public void Move(Direction direction)
         {
             BodyPoints.Peek().Clean();
 
-            BodyPoints.Enqueue(new Point(HeadPoint.GetCoordinate().Item1, 
-                HeadPoint.GetCoordinate().Item2, _snakeColor));
-            BodyPoints.Dequeue();   
-            HeadPoint = new Point(HeadPoint.GetCoordinate().Item1 + 1,
-                HeadPoint.GetCoordinate().Item2, _snakeColor);
-            Draw();
+            BodyPoints.Enqueue(new Point(HeadPoint.GetCoordinate().Item1,
+               HeadPoint.GetCoordinate().Item2, _snakeColor));
+            BodyPoints.Dequeue();
+
+
+            HeadPoint = direction switch
+            {
+                Direction.Up => new Point(HeadPoint.GetCoordinate().Item1,
+                HeadPoint.GetCoordinate().Item2 - 1 , _snakeColor),
+                Direction.Down => new Point(HeadPoint.GetCoordinate().Item1,
+                HeadPoint.GetCoordinate().Item2 + 1, _snakeColor),
+                Direction.Left => new Point(HeadPoint.GetCoordinate().Item1 - 1,
+                HeadPoint.GetCoordinate().Item2, _snakeColor),
+                Direction.Right => new Point(HeadPoint.GetCoordinate().Item1 + 1,
+                HeadPoint.GetCoordinate().Item2, _snakeColor),
+                _ => throw new NotImplementedException(),
+            };
+
+            HeadPoint.Draw();
         }
+
+
 
         public void Clean()
         {
