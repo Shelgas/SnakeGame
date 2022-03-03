@@ -6,14 +6,14 @@ namespace SnakeGame
     {
         public static void Main(string[] args)
         {
-            var windowSize = 56;
+            var windowSize = 33;
 
 
-            Console.SetWindowSize(windowSize, windowSize);
-            Console.SetBufferSize(windowSize, windowSize);
+            Console.SetWindowSize(90, 60);
+            Console.SetBufferSize(90, 60);
 
 
-            var p = new GameField(18, 18);
+            var p = new GameField(30, 20);
             Console.ReadKey();
 
  

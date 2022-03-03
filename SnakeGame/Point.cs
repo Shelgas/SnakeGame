@@ -11,14 +11,21 @@ namespace SnakeGame
         private const int pixelSize = 3;
         private readonly int _x;
         private readonly int _y;
-        public char Symbol { get; set; }
+        public ConsoleColor Color { get; set; }
         
 
         public Point(int x, int y)
         { 
             _x = x;
             _y = y;
-            Symbol = ' ';
+        }
+
+
+        public Point(int x, int y, ConsoleColor color)
+        {
+            _x = x;
+            _y = y;
+            Color = color;
         }
 
 
@@ -33,8 +40,9 @@ namespace SnakeGame
             {
                 for (int y = 0; y < pixelSize; y++)
                 {
-                    Console.SetCursorPosition(_x*pixelSize + x, _y*pixelSize + y);
-                    Console.Write(Symbol);
+                    Console.SetCursorPosition(_x * pixelSize + x, _y * pixelSize + y);
+                    Console.BackgroundColor = Color;
+                    Console.Write(' ');
                 }
             }
         }
@@ -46,8 +54,8 @@ namespace SnakeGame
                 for (int y = 0; y < pixelSize; y++)
                 {
                     Console.SetCursorPosition(_x * pixelSize + x, _y * pixelSize + y);
-                    Symbol = ' '; 
-                    Console.Write(Symbol);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Write(' ');
                 }
             }
         }

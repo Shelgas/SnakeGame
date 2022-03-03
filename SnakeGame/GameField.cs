@@ -18,7 +18,14 @@ namespace SnakeGame
             grid = new Point[width, height];
             _height = height;
             _width = width;
-            DrowBoard();
+            //DrowBoard();
+            var s = new Snake();
+            s.Draw();
+            s.Move();
+            s.Move();
+            s.Move();
+            s.Move();
+            s.Move();
         }
 
         private void DrowBoard()
@@ -28,7 +35,7 @@ namespace SnakeGame
                 for (int j = 0; j < _height; j++)
                 {
                     grid[i, j] = new Point(i, j);
-                    if (i == 0 || i == _width - 1 || j == 0 || j == _height - 1) grid[i, j].Symbol = '▓';
+                    if (i == 0 || i == _width - 1 || j == 0 || j == _height - 1) grid[i, j].Color = ConsoleColor.White;
                     grid[i, j].Draw();
                 }
             }
