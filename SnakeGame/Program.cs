@@ -9,12 +9,11 @@ namespace SnakeGame
         public static void Main(string[] args)
         {
             
-            Console.SetWindowSize(90, 60);
-            Console.SetBufferSize(90, 60);
+            Console.SetWindowSize(90, 90);
+            Console.SetBufferSize(90, 90);
             Console.CursorVisible = false;
 
 
-            //var filed = new GameField(30, 20);
             var snake = new Snake();
             var sw = new Stopwatch();
 

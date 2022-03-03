@@ -9,29 +9,31 @@ namespace SnakeGame
     internal class Point
     {
         private const int pixelSize = 3;
-        private readonly int _x;
-        private readonly int _y;
+        public readonly int X;
+        public readonly int Y;
+
+
         public ConsoleColor Color { get; set; }
         
 
         public Point(int x, int y)
         { 
-            _x = x;
-            _y = y;
+            X = x;
+            Y = y;
         }
 
 
         public Point(int x, int y, ConsoleColor color)
         {
-            _x = x;
-            _y = y;
+            X = x;
+            Y = y;
             Color = color;
         }
 
 
         public (int, int) GetCoordinate()
         {
-            return new(_x, _y);
+            return new(X, Y);
         }
         
         public void Draw()
@@ -40,7 +42,7 @@ namespace SnakeGame
             {
                 for (int y = 0; y < pixelSize; y++)
                 {
-                    Console.SetCursorPosition(_x * pixelSize + x, _y * pixelSize + y);
+                    Console.SetCursorPosition(X * pixelSize + x, Y * pixelSize + y);
                     Console.BackgroundColor = Color;
                     Console.Write(' ');
                 }
@@ -53,7 +55,7 @@ namespace SnakeGame
             {
                 for (int y = 0; y < pixelSize; y++)
                 {
-                    Console.SetCursorPosition(_x * pixelSize + x, _y * pixelSize + y);
+                    Console.SetCursorPosition(X * pixelSize + x, Y * pixelSize + y);
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.Write(' ');
                 }
