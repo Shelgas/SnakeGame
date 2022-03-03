@@ -39,7 +39,7 @@ namespace SnakeGame
 
         public void Move()
         {
-            Clean();
+            BodyPoints.Peek().Clean();
 
             BodyPoints.Enqueue(new Point(HeadPoint.GetCoordinate().Item1, 
                 HeadPoint.GetCoordinate().Item2, _snakeColor));
