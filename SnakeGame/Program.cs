@@ -25,15 +25,35 @@ namespace SnakeGame
             while (true)
             {
                 sw.Restart();
-                while(sw.ElapsedMilliseconds < snake.Speed)
-                {
+                Direction oldMovement = currentMovement;
 
+                while (sw.ElapsedMilliseconds < snake.Speed)
+                {
+                    if (currentMovement == oldMovement)
+                        currentMovement = ReadMovement(currentMovement);
                 }
-                snake.Move(Direction.Down);
+                snake.Move(currentMovement);
             }
 
-            Console.ReadKey();
+        }
 
+        static Direction ReadMovement(Direction currentDirection)
+        {
+            if (!Console.KeyAvailable)
+                return currentDirection;
+
+            ConsoleKey key = Console.ReadKey(true).Key;
+
+            currentDirection = key switch
+            {
+                ConsoleKey.UpArrow when currentDirection != Direction.Down => Direction.Up,
+                ConsoleKey.DownArrow when currentDirection != Direction.Up => Direction.Down,
+                ConsoleKey.LeftArrow when currentDirection != Direction.Right => Direction.Left,
+                ConsoleKey.RightArrow when currentDirection != Direction.Left => Direction.Right,
+                _ => currentDirection
+            };
+
+            return currentDirection;
         }
     }
 }
