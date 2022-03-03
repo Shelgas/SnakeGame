@@ -18,10 +18,7 @@ namespace SnakeGame
             grid = new Point[width, height];
             _height = height;
             _width = width;
-            //DrowBoard();
-            var s = new Snake();
-            s.Draw();
-
+            //DrowBoard
         }
 
         private void DrowBoard()
