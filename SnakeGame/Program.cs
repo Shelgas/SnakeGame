@@ -9,8 +9,8 @@ namespace SnakeGame
         public static void Main(string[] args)
         {
             
-            Console.SetWindowSize(90, 90);
-            Console.SetBufferSize(90, 90);
+            Console.SetWindowSize(57, 63);
+            Console.SetBufferSize(57, 63);
             Console.CursorVisible = false;
 
 
@@ -31,7 +31,9 @@ namespace SnakeGame
                     if (currentMovement == oldMovement)
                         currentMovement = ReadMovement(currentMovement);
                 }
+
                 snake.Move(currentMovement);
+                
             }
 
         }

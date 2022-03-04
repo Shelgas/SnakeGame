@@ -6,33 +6,26 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    internal class GameField
+    internal static class GameField
     {
 
-        public Point[,] grid;
-        private readonly int _width;
-        private readonly int _height;
+        //public static Point[,] grid;
+        public static readonly int Width = 60;
+        public static readonly int Height = 63;
 
-        public GameField(int width, int height)
-        {
-            grid = new Point[width, height];
-            _height = height;
-            _width = width;
-            //DrowBoard
-        }
 
-        private void DrowBoard()
-        {
-            for (int i = 0; i < _width; i++)
-            {
-                for (int j = 0; j < _height; j++)
-                {
-                    grid[i, j] = new Point(i, j);
-                    if (i == 0 || i == _width - 1 || j == 0 || j == _height - 1) grid[i, j].Color = ConsoleColor.White;
-                    grid[i, j].Draw();
-                }
-            }
-        }
+        //private void DrowBoard()
+        //{
+        //    for (int i = 0; i < Width; i++)
+        //    {
+        //        for (int j = 0; j < Height; j++)
+        //        {
+        //            grid[i, j] = new Point(i, j);
+        //            if (i == 0 || i == Width - 1 || j == 0 || j == Height - 1) grid[i, j].Color = ConsoleColor.White;
+        //            grid[i, j].Draw();
+        //        }
+        //    }
+        //}
 
     }
 }
