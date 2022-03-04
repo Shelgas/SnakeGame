@@ -9,8 +9,8 @@ namespace SnakeGame
         public static void Main(string[] args)
         {
             
-            Console.SetWindowSize(57, 63);
-            Console.SetBufferSize(57, 63);
+            Console.SetWindowSize(60, 60);
+            Console.SetBufferSize(60, 60);
             Console.CursorVisible = false;
 
 
@@ -36,6 +36,10 @@ namespace SnakeGame
                 if (snake.ChekPosition())
                     break;
             }
+
+            GameField.Clean();
+            Console.WriteLine("Game over");
+            Console.ReadLine();
 
         }
 

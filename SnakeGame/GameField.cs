@@ -11,7 +11,7 @@ namespace SnakeGame
 
         //public static Point[,] grid;
         public static readonly int Width = 60;
-        public static readonly int Height = 63;
+        public static readonly int Height = 60;
 
 
         //private void DrowBoard()
@@ -27,5 +27,18 @@ namespace SnakeGame
         //    }
         //}
 
+
+        public static void Clean()
+        {
+            for (int i = 0; i < Width; i++)
+            {
+                for (int j = 0; j < Height; j++)
+                {
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Write(" ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
