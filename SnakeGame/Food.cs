@@ -10,7 +10,7 @@ namespace SnakeGame
     internal class Food
     {
 
-        public readonly Point CoardinateFood;
+        public readonly Point Coardinate;
 
         public Food(Snake snake)
         {
@@ -18,9 +18,10 @@ namespace SnakeGame
             var rnd = new Random();
             do
             {
-                CoardinateFood = new Point(rnd.Next(0, GameField.Width - 1), rnd.Next(1, GameField.Height - 1), ConsoleColor.Green);
-            } while (snake.HeadPoint.X == CoardinateFood.X && snake.HeadPoint.Y == CoardinateFood.Y ||
-                     snake.BodyPoints.Any(b => b.X == CoardinateFood.X && b.Y == CoardinateFood.Y));
+                Coardinate = new Point(rnd.Next(0, GameField.Width/3 - 1), rnd.Next(1, GameField.Height/3 - 1), ConsoleColor.Green);
+            } while (snake.HeadPoint.X == Coardinate.X && snake.HeadPoint.Y == Coardinate.Y ||
+                     snake.BodyPoints.Any(b => b.X == Coardinate.X && b.Y == Coardinate.Y));
+            Coardinate.Draw();
         }
 
     }

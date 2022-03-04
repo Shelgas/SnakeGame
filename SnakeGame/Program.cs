@@ -20,6 +20,8 @@ namespace SnakeGame
             snake.Draw();
 
             Direction currentMovement = Direction.Right;
+            Console.BackgroundColor = ConsoleColor.Black;
+            var food = new Food(snake);
 
             while (true)
             {
@@ -33,10 +35,20 @@ namespace SnakeGame
                 }
 
                 snake.Move(currentMovement);
+
                 if (snake.ChekPosition())
                     break;
-            }
 
+                if (snake.HeadPoint.X == food.Coardinate.X && snake.HeadPoint.Y == food.Coardinate.Y)
+                {
+                    snake.BodyPoints.Enqueue(snake.HeadPoint);
+                    food = new Food(snake);
+                }
+                
+
+
+            }
+            
             GameField.Clean();
             Console.WriteLine("Game over");
             Console.ReadLine();
