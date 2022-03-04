@@ -33,7 +33,8 @@ namespace SnakeGame
                 }
 
                 snake.Move(currentMovement);
-                
+                if (snake.ChekPosition())
+                    break;
             }
 
         }

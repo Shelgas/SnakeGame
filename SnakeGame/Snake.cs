@@ -64,7 +64,12 @@ namespace SnakeGame
         }
 
  
-
+        public bool ChekPosition()
+        {
+            if (BodyPoints.Any(x => x.X == HeadPoint.X && x.Y == HeadPoint.Y))
+                return true;
+            return false;
+        }
 
 
         public void Clean()
